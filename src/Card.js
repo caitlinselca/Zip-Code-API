@@ -4,9 +4,18 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zipcode: this.props.zipcode
+      zipcode: this.props.zipcode,
+      locationText: "",
+      state: "",
+      lat: "",
+      long: "",
+      population: "",
+      totalWages: ""
     };
+    getInfo(this.state.zipcode);
   }
+
+  getInfo = zipcode => {};
 
   render() {
     return (
@@ -18,3 +27,9 @@ class Card extends Component {
 }
 
 export default Card;
+
+locationText;
+state;
+location;
+population;
+totalWages;

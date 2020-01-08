@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Cards from "./Cards";
 class Zipcode extends Component {
   constructor(props) {
     super(props);
@@ -24,17 +24,20 @@ class Zipcode extends Component {
           <h1>Zipcode Search</h1>
         </div>
         <div className="Search">
-          <label for="zipcode">Zip Code:</label>
+          <label>Zip Code:</label>
           <input
             type="number"
             value={this.state.zipcode}
             name="zipcode"
-            id="zipcode"
+            className="zipcode"
             onChange={this.handleChange}
           ></input>
-          <button class="zip-search" onClick={this.handleSubmit}>
+          <button className="zip-search" onClick={this.handleSubmit}>
             Search
           </button>
+        </div>
+        <div className="Cards">
+          <Cards zipcode={this.state.zipcode}></Cards>
         </div>
       </div>
     );

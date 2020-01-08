@@ -41,7 +41,7 @@
 }
 
 .Header {
-  background-color: #0074D9;
+  background-color: #0074d9;
   color: white;
   height: 10vh;
   width: 50vw;
@@ -50,7 +50,7 @@
   justify-content: center;
 }
 
-#zipcode {
+.zipcode {
   margin-left: 10px;
   height: 30px;
   font-size: 16px;
