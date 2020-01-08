@@ -1,6 +1,22 @@
 import React, { Component } from "react";
 
 class Zipcode extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      zipcode: ""
+    };
+  }
+
+  handleChange = e => {
+    this.setState({ zipcode: e.target.value });
+  };
+
+  handleSubmit = e => {
+    alert("Zip Code: " + this.state.zipcode);
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div>
@@ -9,8 +25,16 @@ class Zipcode extends Component {
         </div>
         <div className="Search">
           <label for="zipcode">Zip Code:</label>
-          <input type="number" name="zipcode" id="zipcode"></input>
-          <button class="zip-search">Search</button>
+          <input
+            type="number"
+            value={this.state.zipcode}
+            name="zipcode"
+            id="zipcode"
+            onChange={this.handleChange}
+          ></input>
+          <button class="zip-search" onClick={this.handleSubmit}>
+            Search
+          </button>
         </div>
       </div>
     );
