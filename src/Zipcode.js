@@ -4,7 +4,7 @@ class Zipcode extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zipcode: ""
+      zipcode: "11372"
     };
   }
 
