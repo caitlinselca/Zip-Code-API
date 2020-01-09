@@ -1,17 +1,61 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const Card = props => {
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles({
+  card: {
+    "margin-left": "37vh",
+    width: "15vw",
+    textAlign: "center",
+    "margin-bottom": "20px"
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.5)"
+  },
+  title: {
+    fontSize: 14,
+    color: "blue"
+  },
+  pos: {
+    marginBottom: 12,
+    color: "green"
+  }
+});
+
+const ZipCard = props => {
+  const classes = useStyles();
+
   return (
-    <div className="card-container">
-      <h2>{props.name}</h2>
-      <ul>
-        <li>State: {props.state}</li>
-        <li>Location: {props.location}</li>
-        <li>Population (estimated): {props.population}</li>
-        <li>Total Wages: {props.wages}</li>
-      </ul>
-    </div>
+    <Card className={classes.card}>
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color="textSecondary"
+          gutterBottom
+        >
+          {props.name}
+        </Typography>
+        <Typography variant="body2" component="p">
+          State: {props.state}
+        </Typography>
+        <Typography variant="body2" component="p">
+          Location: {props.location}
+        </Typography>
+        <Typography variant="body2" component="p">
+          Population (estimated): {props.population}
+        </Typography>
+        <Typography variant="body2" component="p">
+          Total Wages: {props.wages}
+          <br />
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 class Zipcode extends Component {
@@ -35,7 +79,7 @@ class Zipcode extends Component {
     axios
       .get(`https://ctp-zip-api.herokuapp.com/zip/${this.state.zipcode}`)
       .then(zip => {
-        console.log(zip);
+        console.log(zip, zip.status);
         let newState = zip.data.map(item => {
           return {
             name: item.LocationText,
@@ -49,19 +93,19 @@ class Zipcode extends Component {
       })
       .catch(err => {
         console.log(err);
-        this.setState({ isError: true });
+        this.setState({ isError: true, zipInfo: [] });
       });
   };
 
   render() {
     const Cards = this.state.zipInfo.map(item => (
-      <Card
+      <ZipCard
         name={item.name}
         state={item.state}
         location={item.location}
         population={item.population}
         wages={item.wages}
-      ></Card>
+      ></ZipCard>
     ));
 
     return (
