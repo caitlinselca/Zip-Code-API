@@ -6,8 +6,7 @@ class Cards extends Component {
     super(props);
     this.state = {
       zipcode: this.props.zipcode,
-      resultInfo: [],
-      calledAPI: false
+      resultInfo: []
     };
   }
 
@@ -29,34 +28,24 @@ class Cards extends Component {
         });
       });
     this.setState({ resultInfo: info });
-    this.setState({ calledAPI: true });
   };
 
   componentDidMount() {
-    this.callZipcodeAPI();
+    if (this.state.zipcode) this.callZipcodeAPI();
   }
 
   render() {
-    const { resultInfo, calledAPI } = this.state;
-    let display;
+    const resultInfo = this.state.resultInfo;
 
-    if (calledAPI) {
-      display = resultInfo.map(info => {
-        return <p>{info.state}</p>;
-      });
+    if (!resultInfo.length) {
+      return <p>No Results</p>;
     }
+
     return (
       <div>
-        {display}
-        {console.log(calledAPI)}
-        {/* {resultInfo.length ? (
-          resultInfo.map(info => {
-            return <p>{info.state}</p>;
-          })
-        ) : (
-          <p>No Results</p>
-        )}
-        {console.log(resultInfo.length)} */}
+        {resultInfo.map(info => (
+          <li>{info.locationText}</li>
+        ))}
       </div>
     );
   }

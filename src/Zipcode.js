@@ -4,7 +4,7 @@ class Zipcode extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zipcode: "11372"
+      zipcode: ""
     };
   }
 
@@ -13,7 +13,7 @@ class Zipcode extends Component {
   };
 
   handleSubmit = e => {
-    alert("Zip Code: " + this.state.zipcode);
+    console.log("Zip Code: " + this.state.zipcode);
     e.preventDefault();
   };
 
@@ -21,7 +21,7 @@ class Zipcode extends Component {
     return (
       <div>
         <div className="Header">
-          <h1>Zipcode Search</h1>
+          <h1>Zip Code Search</h1>
         </div>
         <div className="Search">
           <label>Zip Code:</label>
