@@ -80,3 +80,14 @@
 h1 {
   margin: 0;
 }
+
+.header-city {
+  background-color: #FF4136;
+  color: white;
+  height: 15vh;
+  width: 50vw;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
