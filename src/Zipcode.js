@@ -8,24 +8,14 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   card: {
-    "margin-left": "37vh",
-    width: "15vw",
+    width: "20vw",
     textAlign: "center",
     "margin-bottom": "20px"
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.5)"
   },
   title: {
     fontSize: 14,
     color: "blue"
   },
-  pos: {
-    marginBottom: 12,
-    color: "green"
-  }
 });
 
 /*
