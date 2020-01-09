@@ -28,6 +28,10 @@ const useStyles = makeStyles({
   }
 });
 
+/*
+  Card Component used to display data received from zipcode API
+  Using material-ui components
+*/
 const ZipCard = props => {
   const classes = useStyles();
 
@@ -61,6 +65,9 @@ const ZipCard = props => {
 class Zipcode extends Component {
   constructor(props) {
     super(props);
+    // zipcode for user input
+    // zipInfo for api response
+    // isError for flag if error
     this.state = {
       zipcode: "",
       zipInfo: [],
@@ -74,6 +81,9 @@ class Zipcode extends Component {
     });
   };
 
+  // after pressing button, call zipcode API
+  // parse response, create an object with desired data from API response
+  // update state storing information about zip code
   handleSubmit = e => {
     console.log("Zip Code: " + this.state.zipcode);
     axios
@@ -98,6 +108,8 @@ class Zipcode extends Component {
   };
 
   render() {
+    // loop through information about zip code
+    // create individual cards for each location
     const Cards = this.state.zipInfo.map(item => (
       <ZipCard
         name={item.name}
