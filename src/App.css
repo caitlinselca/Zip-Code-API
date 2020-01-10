@@ -98,3 +98,8 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+.cityzipcodes {
+  font: 20px copperplate;
+  color: blue;
+}
