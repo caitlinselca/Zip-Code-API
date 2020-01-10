@@ -42,21 +42,28 @@ class City extends Component {
 				this.setState({ cityInfo: city.data, isError: false });
 			})
 			// .then(() => {
-			// 	let zips = this.state.cityInfo.map(zip => {
+			// 	this.state.cityInfo.map(zip => {
 			// 		axios
 			// 			.get(`https://ctp-zip-api.herokuapp.com/zip/${zip}`)
 			// 			.then(res => {
-			// 				let statesOfZip = res.data.map(l => {
-			// 					return l.State;
-			// 				});
-			// 				return statesOfZip;
-			// 			})
-			// 			.then(statesOfZip => {
-
-			//       });
+			// 				for (let i = 0; i < res.data.length; ++i) {
+			// 					if (
+			// 						this.state.states.indexOf(
+			// 							res.data[i].State
+			// 						) === -1
+			// 					) {
+			// 						this.setState({
+			// 							states: [
+			// 								...this.state.states,
+			// 								res.data[i].State
+			// 							]
+			// 						});
+			// 					}
+			// 				}
+			// 			});
 			// 	});
-			// 	console.log(zips);
 			// })
+			.then(console.log(this.state.states))
 			.catch(err => {
 				console.log(err);
 				this.setState({ isError: true, cityInfo: [] });
