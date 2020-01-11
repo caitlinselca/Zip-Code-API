@@ -18,17 +18,6 @@ class City extends Component {
 		});
 	};
 
-	// arrayUnique = array => {
-	// 	var a = array.concat();
-	// 	for (var i = 0; i < a.length; ++i) {
-	// 		for (var j = i + 1; j < a.length; ++j) {
-	// 			if (a[i] === a[j]) a.splice(j--, 1);
-	// 		}
-	// 	}
-
-	// 	return a;
-	// };
-
 	// after pressing button, call zipcode API
 	// parse response, create an object with desired data from API response
 	// update state storing information about zip code
@@ -41,28 +30,6 @@ class City extends Component {
 			.then(city => {
 				this.setState({ cityInfo: city.data, isError: false });
 			})
-			// .then(() => {
-			// 	this.state.cityInfo.map(zip => {
-			// 		axios
-			// 			.get(`https://ctp-zip-api.herokuapp.com/zip/${zip}`)
-			// 			.then(res => {
-			// 				for (let i = 0; i < res.data.length; ++i) {
-			// 					if (
-			// 						this.state.states.indexOf(
-			// 							res.data[i].State
-			// 						) === -1
-			// 					) {
-			// 						this.setState({
-			// 							states: [
-			// 								...this.state.states,
-			// 								res.data[i].State
-			// 							]
-			// 						});
-			// 					}
-			// 				}
-			// 			});
-			// 	});
-			// })
 			.then(console.log(this.state.states))
 			.catch(err => {
 				console.log(err);
@@ -89,10 +56,7 @@ class City extends Component {
 						className="input-field"
 						onChange={this.handleChange}
 					></input>
-					<button
-						className="search-button"
-						onClick={this.handleSubmit}
-					>
+					<button className="search-button" onClick={this.handleSubmit}>
 						Search
 					</button>
 				</div>
